@@ -4,8 +4,8 @@ const Home = (props) => {
   return (
     <section className="w-full flex-center flex-col">
       <h1 className="head_text text-center">
-        Share & Discover Prompts
-        <br className="max-md:hidden" />
+        Share & Discover Prompts 
+        <br />
         <span className="orange_gradient text-center">
           Enhance your AI Prompting capabilities
         </span>

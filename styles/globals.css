@@ -90,7 +90,7 @@
 }
 
 .head_text {
-  @apply mt-5 text-5xl font-extrabold leading-[1.15] text-black sm:text-6xl;
+  @apply mt-5 text-2xl font-extrabold leading-[1.15] text-black sm:text-6xl;
 }
 
 .orange_gradient {
@@ -173,8 +173,21 @@
   @apply flex justify-between items-center;
 }
 
-
-
+.spinner-layout{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: rgba(0,0,0,0.2);
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+.spinner{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 /* reset */
 button {
   all: unset;
