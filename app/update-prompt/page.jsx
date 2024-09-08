@@ -7,7 +7,6 @@ import React, { useEffect, useState } from "react";
 const UpdatePrompt = (props) => {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const {data: session} = useSession();
   const [submitting, setSubmitting] = useState(false);
   const promptId = searchParams.get('id');
   const [post, setPost] = useState({
