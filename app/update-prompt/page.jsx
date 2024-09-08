@@ -1,26 +1,25 @@
 "use client";
 import Form from "@components/Form";
-import { useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import { Bars } from "react-loader-spinner";
 
-const UpdatePrompt = (props) => {
+const UpdatePrompt = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
-  const promptId = searchParams.get("id");
   const [post, setPost] = useState({
     prompt: "",
     tag: "",
   });
+
+  const promptId = searchParams.get("id");
+
   const editPrompt = async (e) => {
     e.preventDefault();
-    setLoading(true);
     setSubmitting(true);
     try {
-      
       const response = await fetch(`/api/prompt/${promptId}`, {
         method: "PATCH",
         body: JSON.stringify({
@@ -28,7 +27,7 @@ const UpdatePrompt = (props) => {
           tag: post.tag,
         }),
       });
-      setLoading(false);
+
       if (response.ok) {
         router.push("/profile");
       }
@@ -41,43 +40,51 @@ const UpdatePrompt = (props) => {
 
   useEffect(() => {
     const getPrompt = async () => {
-      const response = await fetch(`api/prompt/${promptId}`);
-      const data = await response.json();
+      try {
+        const response = await fetch(`/api/prompt/${promptId}`);
+        const data = await response.json();
 
-      setPost({
-        prompt: data.prompt,
-        tag: data.tags,
-      });
+        setPost({
+          prompt: data.prompt,
+          tag: data.tags,
+        });
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
     };
+
     if (promptId) {
       getPrompt();
-      setLoading(false);
     }
   }, [promptId]);
 
+  if (loading) {
+    return (
+      <div className="spinner-layout">
+        <Bars
+          height="80"
+          width="80"
+          color="#ea580c"
+          ariaLabel="bars-loading"
+          wrapperStyle={{}}
+          wrapperClass="spinner"
+          visible={loading}
+        />
+      </div>
+    );
+  }
+
   return (
-    <>
+    <Suspense fallback={<div>Loading...</div>}>
       <Form
         type="Edit"
         post={post}
         setPost={setPost}
         submitting={submitting}
         handleSubmit={editPrompt}
-      ></Form>
-      {loading && (
-        <div className="spinner-layout">
-          <Bars
-            height="80"
-            width="80"
-            color="#ea580c"
-            ariaLabel="bars-loading"
-            wrapperStyle={{}}
-            wrapperClass="spinner"
-            visible={loading}
-          />
-        </div>
-      )}
-    </>
+      />
+    </Suspense>
   );
 };
 
