@@ -1,36 +1,18 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Prompt Sharing
 
-## Getting Started
+**Prompt Sharing** is a Next.js application designed for users to share, discover, and manage creative prompts. With Google Authentication, tagging, and robust search capabilities, users can interact with a vibrant community of prompt creators.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Google Authentication (OAuth)**: Seamlessly log in or register using your Google account.
+- **Posting and Sharing Prompts**: Share creative prompts with the community.
+- **Tagging**: Add and search prompts using descriptive tags.
+- **Profile Management**: View and update your profile information.
+- **CRUD Operations**: Create, read, update, and delete prompts and profiles.
+- **Search Functionality**: Easily find prompts by tags, keywords, or users.
+- **Responsive Design**: Fully responsive UI to ensure a seamless experience across all devices, including desktops, tablets, and smartphones.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![PromptSharing_4](https://github.com/user-attachments/assets/27466c82-e298-4228-b36f-491055b99a90)
+![PromptSharing_1](https://github.com/user-attachments/assets/fadd2678-97e0-46a5-8087-6b5edc30cd01)
+![PromptSharing_2](https://github.com/user-attachments/assets/6898f1ce-7164-4ee6-9c1e-6d0db87c0c47)
+![PromptSharing_3](https://github.com/user-attachments/assets/0816bd34-c334-4846-a22d-a2a77c863866)
