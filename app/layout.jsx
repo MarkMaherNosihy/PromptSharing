@@ -2,6 +2,7 @@ import React from "react";
 import "@styles/globals.css";
 import Nav from "@components/Nav";
 import Provider from "@components/Provider";
+import { ToastContainer } from "react-toastify";
 
 export const metadata = {
   title: "PromptSharing",

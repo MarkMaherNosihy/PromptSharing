@@ -6,7 +6,7 @@ import React, { useState } from "react";
 
 const CreatePrompt = (props) => {
   const router = useRouter();
-  const session = useSession();
+  const {data: session} = useSession();
   const [submitting, setSubmitting] = useState(false);
   const [post, setPost] = useState({
     prompt: "",
@@ -16,11 +16,12 @@ const CreatePrompt = (props) => {
     e.preventDefault();
     setSubmitting(true);
     try{
+
       const response = await fetch('/api/prompt/new',{
         method: 'POST',
         body: JSON.stringify({
           prompt: post.prompt,
-          userId: session?.userId,
+          userId: session.user?.id,
           tag: post.tag
         })
       });
@@ -33,6 +34,7 @@ const CreatePrompt = (props) => {
       setSubmitting(false);
     }
   };
+
   return (
     <Form
       type="Create"
